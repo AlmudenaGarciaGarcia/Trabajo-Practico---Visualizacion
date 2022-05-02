@@ -1,0 +1,22 @@
+h1, h2 {
+  font-family: Lato;
+}
+h1 {
+  background-color: rgb(241, 113, 9);
+  color: black;
+  font-family: Calibri, sans-serif;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  padding-top: 30px;
+  border-radius: 30px;
+}
+body{
+  background-color:#e9e9e9;
+  font-family: Calibri, sans-serif;
+}
+#notaMapa{
+  text-align: center;
+  font-size: 10px;
+  color: #857c7c;
+}
