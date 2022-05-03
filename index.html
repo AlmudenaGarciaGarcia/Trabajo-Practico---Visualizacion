@@ -2,6 +2,7 @@
 <body>
 <h1 id="titulo">Actos fraudulentos en alquileres turísticos</h1>
 <b>Nombre:</b> Almudena García García <br>
+<b>Asignatura:</b> Visualización de datos <br>
 <b>Url:</b> <a href="https://js-56jwzz.stackblitz.io">https://js-56jwzz.stackblitz.io</a><br>
 <b>GitHub:</b> <a href="https://github.com/AlmudenaGarciaGarcia/Trabajo-Practico---Visualizacion"> https://github.com/AlmudenaGarciaGarcia/Trabajo-Practico-Visualizacion </a><br>
 <b>Fuente Datos:</b> <a href="https://www.kaggle.com/rusiano/madrid-airbnb-data"> https://www.kaggle.com/rusiano/madrid-airbnb-data</a><br>
@@ -10,48 +11,62 @@
 
 <h2>Introducción</h2>
 <p>La demanda de alquileres de viviendas turísticas cada vez más va aumentando progresivamente, ya que es una forma barata de viajar. La oferta de alojamientos turísticos en Madrid es muy amplia y de calidad, pero entre los miles de anuncios de casas, hay un pequeño porcentaje que no son lo que parecen, o anuncian viviendas inexistentes, o las condiciones reales no tienen nada que ver con lo ofertado.</p>
-<p>Por ello, la dirección de Airbnb ha decido investigar esos fraudes, aunque le porcentaje es pequeño, pueden dar mala imagen a la compañía. En este caso como se trata de una empresa bastante amplia y con alojamientos por todo el mundo, he decidido analizar solo la localidad de Madrid.</p>
+<p>Por ello, la dirección de Airbnb ha decido investigar esos fraudes, aunque el porcentaje es pequeño, pueden dar mala imagen a la compañía. En este caso como se trata de una empresa bastante amplia y con alojamientos por todo el mundo, he decidido analizar solo la localidad de Madrid.</p>
 <div id="centerMapa">
   <a href="https://ibb.co/wLMFbDN"><img src="https://i.ibb.co/th8TNyM/Mapa-Madrid.png" alt="Mapa-Madrid" border="0"></a>
   <br><element id="notaMapa">Fuente: <a href="https://colab.research.google.com/drive/1pcug3oGlJzfws1yBdgGlnVG3WWzt3FFn?=sharing">https://colab.research.google.com/drive/1pcug3oGlJzfws1yBdgGlnVG3WWzt3FFn?=sharing</a><p><br>
 </div>
+
 <p><b>Objetivo: </b> Con ello, para conseguir alcanzar nuestro objetivo necesitamos responder a la siguiente pregunta: </p>
 
 <ul>
-  <li type="disc">¿Alguna de las viviendas turísticas publicitadas son fraude?</li>
-  <li type="disc">¿Son utiles las reseñas de los huéspedes?</li>
+  <li type="disc">¿Puede haber patrones en las viviendas turísticas que den indicios de fraude?</li>
+  <li type="disc">¿Son útiles las reseñas de los huéspedes para analizar?</li>
 </ul>
 
-<h2>Análisis alquileres</h2>
+<h2>Análisis viviendas turísticas</h2>
 <p>La base de datos que utilizaremos pertenece a <a href="http://insideairbnb.com/get-the-data.html">http://insideairbnb.com/get-the-data.html</a>, la cual la localice a través de la página web: <a href="https://www.kaggle.com/rusiano/madrid-airbnb-data">https://www.kaggle.com/rusiano/madrid-airbnb-data</a></p>
-<p>Primero tendremos en cuenta que es lo que realmente necesitamos para contestar nuestras preguntas. Para ver si una viviendo turistica es fraudalenta o no tenemos que tener en cuenta las caracteristicas de: la vivienda en si, el propietario y las reseñas de otros huespedes anteriores.
-
-Utilizaremos variables como: 
+<p>Primero tendremos en cuenta que es lo que realmente necesitamos para contestar nuestras preguntas. Para ver si una viviendo turística es fraudulenta o no debemos tener en cuenta las características de: la vivienda en sí, el propietario y las reseñas de otros huéspedes anteriores. Utilizaremos variables como: 
 <ul>
-<li type="disc">¿Alguna de las viviendas turísticas publicitadas son fraude?</li>
-<li type="disc">¿Son utiles las reseñas de los huéspedes?</li>
+  <li type="disc">Si el propietario tiene la identificación verificada</li>
+  <li type="disc">Cuanto tiempo está disponible la vivienda</li>
+  <li type="disc">El tipo de vivienda</li>
+  <li type="disc">Número de reseñas</li>
+  <li type="disc">Puntiación de reseñas</li>
 </ul>
-
+</p>
+<p>En primer lugar hay que tener en cuenta y filtrar que el propietario no esté verificado, ya que es el indicio más claro de posible fraude, pero no el unico, puede haber más factores que demuestren.
 </p>
 
+<div id="centerMapa">
+<!--<iframe title="TP-Airbnb" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=12fac0ba-1a5c-4263-b91c-cd8976ea618c&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>-->
 
+<br><element id="notaMapa">Fuente:<a href="https://app.powerbi.com/reportEmbed?reportId=12fac0ba-1a5c-4263-b91c-cd8976ea618c&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D">https://app.powerbi.com/reportEmbed?reportId=12fac0ba-1a5c-4263-b91c-cd8976ea618c&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D</a></element>
+</div>
+<br>
+<p>A continuación analizaremos cada una de las gráficas que aparecen previamente: 
+<ul>
+  <li type="disc"><b>Recuento de propietarios sin identificación verificada por Año: </b></li>Como se observa hay un significante aumento de los propietarios verificados a lo largo de los años. Esto nos puede decir que si se tiene en cuenta las verificaciones por arte de los propietarios para así evitar fraudes. A excepción, de a partir del año 2019 que hay una caída bastante significativa, pudiendo deberse al COVID.<br>
 
-
-
+  <li type="disc"><b>Cantidad de días habilitada por el tipo de vivienda, sin identificación de propietario verificada: </b></li>Otro indicio de fraude puede deberse a la comparación de los tipos de viviendas con los días que están habilitados. Hay que tener en cuenta, que ciertos tipos de viviendas como son hoteles, hostales y habitaciones compartidas, es difícil que no sean inexistentes y que se alquilaran por un largo periodo de tiempo. 
+  Estudiando los parámetros de la gráfica, concluimos que se cumple con lo expuesto anteriormente, ya que se confirma que los periodos de alquiler son largos.<br>
+  <li type="disc"><b>Promedios de cantidad y puntuacion de las reseñas por Año: </b></li>Se puede ver claramente una disminución del número y puntuación de reseñas por parte de los huéspedes. Estas bajadas son antes de 2020, por lo que no están vinculadas con el COVID. Esto nos puede hacer plantearnos por qué la disminución de estas variables, cuando la demanda de viviendas turísticas aumenta.
+</ul>
+</p>
 
 <h2>Conclusión</h2>
-
-
-En este trabajo final de la asignatura de visualización nos hemos esforzado en presentar de manara clara las comparativas entre campañas, su evolución y aportamos visualizaciones interactivas que permitan a la audiencia una mejor comprensión de los resultados.
+<p>
+  Como resultado de nuestro análisis para el objetivo planteado, estos gráficos no nos muestran toda la información necesaria para poder estimar unos patrones claros de fraude. Seguramente necesitemos otras variables que a lo mejor nos aporten algo más de información que los seleccionados.
+  <br><br>
+  También hay que tener en cuenta que los datos registrados se quedan desvirtuados en los dos últimos años, 2020 y 2021, ya que en este periodo comenzó la pandemia por COVID y sus respectivas consecuencias para el turismo.  
+</p>
 
 
 <h3>Gráficas y herramientas empleadas</h3>
 A continuación, se mencionadas los tipos de gráficas que he utilizado y con que herramientas los hemos generado.
 <ul>
-  <li type="disc"><b>Google Colab + Mapa cartografico: </b>Para poder ver la cuantía de los alojamientos que ofrece Airbnb, he utilizado la herramienta Google Colab junto con Python, utilizar la librería folium, y poder crear el mapa cartográfico de mis datos. La cual, he indicado con un icono de una casa, y así intuir que se trata de alojamientos. </li>
+  <li type="disc"><b>Google Colab y Python + Mapa cartografico: </b>Para poder ver la cuantía de los alojamientos que ofrece Airbnb, he utilizado la herramienta Google Colab junto con Python, utilizar la librería folium, y poder crear el mapa cartográfico de mis datos. La cual, he indicado con un icono de una casa, y así intuir que se trata de alojamientos. </li>
 
-  <li type="disc"><b>Google Sheets + : </b></li>
-
-  <li type="disc"><b>Power BI + : </b></li>
+  <li type="disc"><b>Power BI + Gráfico Lineal y Gráfico de barras: </b> Para tener en cuenta un periodo de tiempo es primordial la utilización de gráficos lineales. Además, para una correcta visualización de las etiquetas de una variable categórica, la visualización en gráficos de barras.</li>
 </ul>
 </body>
